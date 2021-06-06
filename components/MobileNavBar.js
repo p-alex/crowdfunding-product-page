@@ -9,16 +9,18 @@ export default function MobileNavBar() {
         <MobileNavBarMenu toggleOff={() => setIsActive(!isActive)} />
       )}
       <nav className={styles.nav}>
-        <img src="/images/logo.svg" />
-        <div
-          className={
-            isActive
-              ? styles.hamburger_container + " " + styles.open
-              : styles.hamburger_container
-          }
-          onClick={() => setIsActive(!isActive)}
-        >
-          <div className={styles.hamburger}></div>
+        <div className={styles.nav_container}>
+          <img src="/images/logo.svg" />
+          <div
+            className={
+              isActive
+                ? styles.hamburger_container + " " + styles.open
+                : styles.hamburger_container
+            }
+            onClick={() => setIsActive(!isActive)}
+          >
+            <div className={styles.hamburger}></div>
+          </div>
         </div>
       </nav>
     </>

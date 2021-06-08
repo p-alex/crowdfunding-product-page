@@ -5,11 +5,10 @@
   background-size: cover;
   background-position: top;
   background-repeat: no-repeat;
-  opacity: 1;
 }
 
 @media screen and (min-width: 700px) {
   .banner {
-    height: 500px;
+    height: 400px;
   }
 }

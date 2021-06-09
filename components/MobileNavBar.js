@@ -1,13 +1,9 @@
-import { useState } from "react";
 import styles from "../styles/MobileNavBar.module.css";
 import MobileNavBarMenu from "./MobileNavBarMenu";
-export default function MobileNavBar() {
-  const [isActive, setIsActive] = useState(false);
+export default function MobileNavBar({ isActive, handleToggleMenu }) {
   return (
     <>
-      {isActive && (
-        <MobileNavBarMenu toggleOff={() => setIsActive(!isActive)} />
-      )}
+      {isActive && <MobileNavBarMenu handleToggleMenu={handleToggleMenu} />}
       <nav className={styles.nav}>
         <div className={styles.nav_container}>
           <img src="/images/logo.svg" />
@@ -17,7 +13,7 @@ export default function MobileNavBar() {
                 ? styles.hamburger_container + " " + styles.open
                 : styles.hamburger_container
             }
-            onClick={() => setIsActive(!isActive)}
+            onClick={handleToggleMenu}
           >
             <div className={styles.hamburger}></div>
           </div>

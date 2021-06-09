@@ -1,0 +1,12 @@
+.sections_container {
+  position: relative;
+  width: 90%;
+  margin: auto;
+  top: -45px;
+}
+@media screen and (min-width: 800px) {
+  .sections_container {
+    width: 730px;
+    top: -90px;
+  }
+}

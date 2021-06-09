@@ -1,0 +1,33 @@
+.btn {
+  position: relative;
+  border: none;
+  background: transparent;
+  outline: none;
+  color: white;
+  background: hsl(176, 50%, 47%);
+  font-weight: 700;
+  border-radius: 50px;
+  cursor: pointer;
+}
+.small {
+  padding: 15px 20px;
+}
+.big {
+  padding: 15px 35px;
+}
+.bookmark {
+  color: black;
+  display: flex;
+  align-items: center;
+  background: rgb(235, 235, 235);
+  padding: 15px;
+}
+.bookmark span {
+  margin-left: 50px;
+  margin-right: 10px;
+}
+.bookmark img {
+  position: absolute;
+  height: 100%;
+  left: 0;
+}

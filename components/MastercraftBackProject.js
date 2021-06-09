@@ -1,8 +1,7 @@
-import SectionContainer from "../containers/SectionContainer";
 import styles from "../styles/MastercraftBackProject.module.css";
 import {
+  SectionContainer,
   Button,
-  FlexContainer,
   Paragraph,
   HeaderTag,
 } from "../component-library/component-library";
@@ -18,12 +17,14 @@ export default function MastercraftBackProject() {
       <Paragraph>
         A beautiful & handcrafted monitor stand to reduce neck and eye strain.
       </Paragraph>
-      <FlexContainer>
-        <Button size="big" type="button">
+      <div className={styles.btns_container}>
+        <Button size="big" type="button" func={() => {}}>
           Back this project
         </Button>
-        <Button type="bookmark">Bookmark</Button>
-      </FlexContainer>
+        <Button size="big" type="bookmark" func={() => {}}>
+          Bookmark
+        </Button>
+      </div>
     </SectionContainer>
   );
 }

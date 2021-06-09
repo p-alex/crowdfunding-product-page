@@ -4,29 +4,11 @@
   top: -28px;
   left: 0;
   right: 0;
-  margin: 0 auto;
+  margin: auto;
 }
-.bookmark_btn {
+.btns_container {
   position: relative;
-  border: none;
-  cursor: pointer;
-  background: transparent;
-  outline: none;
-  color: black;
   display: flex;
-  border-radius: 50px;
+  justify-content: space-between;
   align-items: center;
-  background: rgb(235, 235, 235);
-  font-weight: 700;
-  font-size: 1rem;
-  padding: 15px;
-}
-.bookmark_btn span {
-  margin-left: 50px;
-  margin-right: 10px;
-}
-.bookmark_btn img {
-  position: absolute;
-  height: 100%;
-  left: 0;
 }

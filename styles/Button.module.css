@@ -8,6 +8,10 @@
   font-weight: 700;
   border-radius: 50px;
   cursor: pointer;
+  border: solid 3px transparent;
+}
+.btn:focus {
+  border: dotted 3px hsl(176, 53%, 23%);
 }
 .small {
   padding: 15px 20px;
@@ -17,10 +21,12 @@
 }
 .bookmark {
   color: black;
-  display: flex;
   align-items: center;
   background: rgb(235, 235, 235);
   padding: 15px;
+}
+.bookmark:focus {
+  border: dotted 3px rgb(172, 172, 172);
 }
 .bookmark span {
   margin-left: 50px;
@@ -30,4 +36,16 @@
   position: absolute;
   height: 100%;
   left: 0;
+  bottom: 0;
+}
+@media screen and (max-width: 700px) {
+  .bookmark {
+    padding: 0px;
+  }
+  .bookmark span {
+    display: none;
+  }
+  .bookmark img {
+    position: relative;
+  }
 }

@@ -1,6 +1,7 @@
 import ButtonStyles from "../styles/Button.module.css";
-import FlexContainerStyles from "../styles/FlexContainer.module.css";
-export function Button({ children, size, type }) {
+import SectionContainerStyles from "../styles/SectionContainer.module.css";
+
+export function Button({ children, size, type, func }) {
   return (
     <>
       {type === "button" ? (
@@ -12,21 +13,23 @@ export function Button({ children, size, type }) {
               ? ButtonStyles.btn + " " + ButtonStyles.big
               : ButtonStyles.btn
           }
+          onClick={func}
         >
           {children}
         </button>
       ) : type === "bookmark" ? (
-        <button className={ButtonStyles.btn + " " + ButtonStyles.bookmark}>
+        <button
+          className={ButtonStyles.btn + " " + ButtonStyles.bookmark}
+          onClick={func}
+        >
           <img src="/images/icon-bookmark.svg" />
-          <span> {children}</span>
+          <span>{children}</span>
         </button>
       ) : null}
     </>
   );
 }
-export function FlexContainer({ children }) {
-  return <div className={FlexContainerStyles.flex_container}>{children}</div>;
-}
+
 export function HeaderTag({ children, type }) {
   return (
     <>
@@ -46,10 +49,17 @@ export function HeaderTag({ children, type }) {
     </>
   );
 }
+
 const paragraphStyles = {
-  margin: "10px 0 40px 0",
+  margin: "25px 0",
   color: "grey",
 };
 export function Paragraph({ children }) {
   return <p style={paragraphStyles}>{children}</p>;
+}
+
+export function SectionContainer({ children }) {
+  return (
+    <section className={SectionContainerStyles.container}>{children}</section>
+  );
 }

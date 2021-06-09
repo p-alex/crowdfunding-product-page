@@ -1,6 +1,9 @@
+import { useState } from "react";
 import styles from "../styles/MobileNavBar.module.css";
 import MobileNavBarMenu from "./MobileNavBarMenu";
-export default function MobileNavBar({ isActive, handleToggleMenu }) {
+export default function MobileNavBar() {
+  const [isActive, setIsActive] = useState(false);
+  const handleToggleMenu = () => setIsActive(!isActive);
   return (
     <>
       {isActive && <MobileNavBarMenu handleToggleMenu={handleToggleMenu} />}

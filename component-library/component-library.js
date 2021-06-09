@@ -1,5 +1,6 @@
-import ButtonStyles from "../styles/Button.module.css";
-import SectionContainerStyles from "../styles/SectionContainer.module.css";
+import buttonStyles from "../styles/Button.module.css";
+import sectionContainerStyles from "../styles/SectionContainer.module.css";
+import progressBarStyles from "../styles/ProgressBar.module.css";
 
 export function Button({ children, size, type, func }) {
   return (
@@ -8,10 +9,10 @@ export function Button({ children, size, type, func }) {
         <button
           className={
             size === "small"
-              ? ButtonStyles.btn + " " + ButtonStyles.small
+              ? buttonStyles.btn + " " + buttonStyles.small
               : size === "big"
-              ? ButtonStyles.btn + " " + ButtonStyles.big
-              : ButtonStyles.btn
+              ? buttonStyles.btn + " " + buttonStyles.big
+              : buttonStyles.btn
           }
           onClick={func}
         >
@@ -19,7 +20,7 @@ export function Button({ children, size, type, func }) {
         </button>
       ) : type === "bookmark" ? (
         <button
-          className={ButtonStyles.btn + " " + ButtonStyles.bookmark}
+          className={buttonStyles.btn + " " + buttonStyles.bookmark}
           onClick={func}
         >
           <img src="/images/icon-bookmark.svg" />
@@ -60,6 +61,31 @@ export function Paragraph({ children }) {
 
 export function SectionContainer({ children }) {
   return (
-    <section className={SectionContainerStyles.container}>{children}</section>
+    <section className={sectionContainerStyles.container}>{children}</section>
+  );
+}
+
+export function ProgressBar({
+  currentValue,
+  maxValue,
+  marginBottom,
+  marginTop,
+}) {
+  return (
+    <div
+      className={progressBarStyles.bar_container}
+      style={{ marginBottom, marginTop }}
+    >
+      <div
+        className={progressBarStyles.bar}
+        style={
+          currentValue < maxValue
+            ? {
+                width: ((currentValue / maxValue) * 100).toString() + "%",
+              }
+            : { width: "100%" }
+        }
+      ></div>
+    </div>
   );
 }

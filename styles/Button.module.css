@@ -1,6 +1,5 @@
 .btn {
   position: relative;
-  border: none;
   background: transparent;
   outline: none;
   color: white;
@@ -41,11 +40,13 @@
 @media screen and (max-width: 700px) {
   .bookmark {
     padding: 0px;
+    border-radius: 50%;
   }
   .bookmark span {
     display: none;
   }
   .bookmark img {
     position: relative;
+    top: 1.2px;
   }
 }

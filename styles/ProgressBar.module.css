@@ -1,0 +1,15 @@
+.bar_container {
+  position: relative;
+  width: 100%;
+  height: 10px;
+  background: rgb(235, 235, 235);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.bar {
+  position: relative;
+  height: 100%;
+  left: 0;
+  background: hsl(176, 50%, 47%);
+  transition: width 300ms ease-in-out;
+}

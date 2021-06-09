@@ -1,11 +1,11 @@
-.sections_container {
+.sections_wrapper {
   position: relative;
   width: 90%;
   margin: auto;
   top: -45px;
 }
 @media screen and (min-width: 800px) {
-  .sections_container {
+  .sections_wrapper {
     width: 730px;
     top: -90px;
   }

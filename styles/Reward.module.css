@@ -16,8 +16,7 @@
   margin-top: 10px;
 }
 .reward_select {
-  display: flex;
-  flex-direction: column;
+  display: inline-block;
 }
 .reward_itemsLeft {
   display: flex;
@@ -39,6 +38,7 @@
     align-items: center;
   }
   .reward_select {
+    display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;

@@ -9,7 +9,7 @@ export default function MobileNavBar() {
       {isActive && <MobileNavBarMenu handleToggleMenu={handleToggleMenu} />}
       <nav className={styles.nav}>
         <div className={styles.nav_container}>
-          <img src="/images/logo.svg" />
+          <img src="/images/logo.svg" alt="mastercraft logo" />
           <div
             className={
               isActive

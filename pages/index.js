@@ -6,6 +6,7 @@ import MastercraftBackProject from "../components/MastercraftBackProject";
 import SectionsWrapper from "../containers/SectionsWrapper";
 import Stats from "../components/Stats";
 import styles from "../styles/Home.module.css";
+import AboutProject from "../components/AboutProject";
 
 export default function Home() {
   return (
@@ -25,6 +26,7 @@ export default function Home() {
       <SectionsWrapper>
         <MastercraftBackProject />
         <Stats />
+        <AboutProject />
       </SectionsWrapper>
     </>
   );

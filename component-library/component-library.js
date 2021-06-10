@@ -54,14 +54,17 @@ export function HeaderTag({ children, type }) {
 const paragraphStyles = {
   margin: "25px 0",
   color: "grey",
+  lineHeight: "30px",
 };
 export function Paragraph({ children }) {
   return <p style={paragraphStyles}>{children}</p>;
 }
 
-export function SectionContainer({ children }) {
+export function SectionContainer({ children, textAlign }) {
   return (
-    <section className={sectionContainerStyles.container}>{children}</section>
+    <section className={sectionContainerStyles.container} style={{ textAlign }}>
+      {children}
+    </section>
   );
 }
 

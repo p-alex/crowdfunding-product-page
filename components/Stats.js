@@ -5,7 +5,7 @@ import {
 } from "../component-library/component-library";
 export default function Stats() {
   return (
-    <SectionContainer>
+    <SectionContainer textAlign="center">
       <div className={styles.stats_container}>
         <div className={styles.stat}>
           <span>$1,204</span>

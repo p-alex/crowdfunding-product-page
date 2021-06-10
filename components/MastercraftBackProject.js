@@ -7,7 +7,7 @@ import {
 } from "../component-library/component-library";
 export default function MastercraftBackProject() {
   return (
-    <SectionContainer>
+    <SectionContainer textAlign="center">
       <img
         src="/images/logo-mastercraft.svg"
         alt="mastercraft"

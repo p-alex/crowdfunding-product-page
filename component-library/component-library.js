@@ -23,7 +23,7 @@ export function Button({ children, size, type, func }) {
           className={buttonStyles.btn + " " + buttonStyles.bookmark}
           onClick={func}
         >
-          <img src="/images/icon-bookmark.svg" />
+          <img src="/images/icon-bookmark.svg" alt="bookmark icon" />
           <span>{children}</span>
         </button>
       ) : null}

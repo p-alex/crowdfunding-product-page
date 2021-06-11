@@ -7,7 +7,7 @@
   font-weight: 700;
   border-radius: 50px;
   cursor: pointer;
-  border: solid 3px transparent;
+  border: none;
 }
 .small {
   padding: 15px 20px;

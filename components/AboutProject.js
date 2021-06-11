@@ -7,7 +7,7 @@ import Reward from "./Reward";
 export default function AboutProject() {
   return (
     <SectionContainer textAlign="left">
-      <HeaderTag type="two">About this project</HeaderTag>
+      <HeaderTag type="one">About this project</HeaderTag>
       <Paragraph>
         The Mastercraft Bamboo Monitor Riser is a sturdy and stylish platform
         that elevates your screen to a more comfortable viewing height. Placing

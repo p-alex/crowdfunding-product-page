@@ -6,7 +6,6 @@
   right: 0;
   margin: auto;
   border-radius: 10px;
-  margin-top: 90px;
   animation: opacityAnimation 300ms;
   z-index: 110;
 }

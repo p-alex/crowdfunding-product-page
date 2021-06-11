@@ -18,6 +18,9 @@
   z-index: 110;
 }
 .hamburger_container {
+  background: none;
+  border: none;
+  right: -3px;
   position: relative;
   display: flex;
   width: 16px;
@@ -42,6 +45,7 @@
   height: 3px;
   background-color: white;
   transition: all 0.3s ease-in-out;
+  left: 0;
 }
 .hamburger::before {
   transform: translateY(-6px);

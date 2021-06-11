@@ -6,22 +6,23 @@ export default function MobileNavBar() {
   const handleToggleMenu = () => setIsActive(!isActive);
   return (
     <>
-      {isActive && <MobileNavBarMenu handleToggleMenu={handleToggleMenu} />}
       <nav className={styles.nav}>
         <div className={styles.nav_container}>
           <img src="/images/logo.svg" alt="mastercraft logo" />
-          <div
+          <button
             className={
               isActive
                 ? styles.hamburger_container + " " + styles.open
                 : styles.hamburger_container
             }
             onClick={handleToggleMenu}
+            tabIndex="0"
           >
             <div className={styles.hamburger}></div>
-          </div>
+          </button>
         </div>
       </nav>
+      {isActive && <MobileNavBarMenu handleToggleMenu={handleToggleMenu} />}
     </>
   );
 }

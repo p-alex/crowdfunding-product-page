@@ -2,7 +2,7 @@ import buttonStyles from "../styles/Button.module.css";
 import sectionContainerStyles from "../styles/SectionContainer.module.css";
 import progressBarStyles from "../styles/ProgressBar.module.css";
 
-export function Button({ children, size, type, func }) {
+export function Button({ children, size, type, func, isDisabled }) {
   return (
     <>
       {type === "button" ? (
@@ -15,6 +15,7 @@ export function Button({ children, size, type, func }) {
               : buttonStyles.btn
           }
           onClick={func}
+          disabled={isDisabled}
         >
           {children}
         </button>

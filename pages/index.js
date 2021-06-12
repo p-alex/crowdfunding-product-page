@@ -39,7 +39,9 @@ export default function Home({ data }) {
 }
 
 export async function getServerSideProps() {
-  const result = await fetch("http://localhost:3000/api/data");
+  const result = await fetch(
+    "https://crowdfunding-product-page-omega.vercel.app/api/data"
+  );
   const resultJson = await result.json();
   return {
     props: {

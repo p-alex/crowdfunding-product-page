@@ -4,24 +4,24 @@ import {
   Paragraph,
   Button,
 } from "../component-library/component-library";
-export default function Reward() {
+export default function Reward({ title, minPledge, desc, stock }) {
   return (
-    <div className={styles.reward}>
+    <div
+      className={
+        stock > 0 ? styles.reward : styles.reward + " " + styles.disabled
+      }
+    >
       <div className={styles.reward_info}>
-        <HeaderTag type="two">Bamboo Stand</HeaderTag>
-        <span>Pledge $25 or more</span>
+        <HeaderTag type="two">{title}</HeaderTag>
+        <span>Pledge ${minPledge} or more</span>
       </div>
-      <Paragraph>
-        You get an ergonomic stand made of natural bamboo. You've helped us
-        launch our promotional campaign, and you’ll be added to a special Backer
-        member list.
-      </Paragraph>
+      <Paragraph>{desc}</Paragraph>
       <div className={styles.reward_select}>
         <div className={styles.reward_itemsLeft}>
-          <span>101</span>
+          <span>{stock}</span>
           <small>left</small>
         </div>
-        <Button size="big" type="button">
+        <Button size="big" type="button" isDisabled={!stock > 0}>
           Select Reward
         </Button>
       </div>

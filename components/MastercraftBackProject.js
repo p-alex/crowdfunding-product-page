@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import ProjectContext from "../context/project-context";
 import styles from "../styles/MastercraftBackProject.module.css";
 import {
   SectionContainer,
@@ -6,6 +8,8 @@ import {
   HeaderTag,
 } from "../component-library/component-library";
 export default function MastercraftBackProject() {
+  const context = useContext(ProjectContext);
+  const { title, smallDesc } = context.data[0];
   return (
     <SectionContainer textAlign="center">
       <img
@@ -13,10 +17,8 @@ export default function MastercraftBackProject() {
         alt="mastercraft"
         className={styles.logo}
       />
-      <HeaderTag type={"one"}>Mastercraft Bamboo Monitor Riser</HeaderTag>
-      <Paragraph>
-        A beautiful & handcrafted monitor stand to reduce neck and eye strain.
-      </Paragraph>
+      <HeaderTag type={"one"}>{title}</HeaderTag>
+      <Paragraph>{smallDesc}</Paragraph>
       <div className={styles.btns_container}>
         <Button size="big" type="button" func={() => {}}>
           Back this project

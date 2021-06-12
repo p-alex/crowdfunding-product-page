@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import ProjectContext from "../context/project-context";
 import {
   SectionContainer,
   HeaderTag,
@@ -5,21 +7,23 @@ import {
 } from "../component-library/component-library";
 import Reward from "./Reward";
 export default function AboutProject() {
+  const context = useContext(ProjectContext);
+  const { rewards, longDesc } = context.data[0];
   return (
     <SectionContainer textAlign="left">
       <HeaderTag type="one">About this project</HeaderTag>
-      <Paragraph>
-        The Mastercraft Bamboo Monitor Riser is a sturdy and stylish platform
-        that elevates your screen to a more comfortable viewing height. Placing
-        your monitor at eye level has the potential to improve your posture and
-        make you more comfortable while at work, helping you stay focused on the
-        task at hand. Featuring artisan craftsmanship, the simplicity of design
-        creates extra desk space below your computer to allow notepads, pens,
-        and USB sticks to be stored under the stand.
-      </Paragraph>
-      <Reward />
-      <Reward />
-      <Reward />
+      <Paragraph>{longDesc}</Paragraph>
+      {rewards.map((reward, id) => {
+        return (
+          <Reward
+            key={id}
+            title={reward.title}
+            minPledge={reward.minPledge}
+            desc={reward.desc}
+            stock={reward.stock}
+          />
+        );
+      })}
     </SectionContainer>
   );
 }

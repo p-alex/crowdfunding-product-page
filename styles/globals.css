@@ -18,6 +18,10 @@ body {
 button {
   font-size: 16px;
 }
+button:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
 button:focus,
 a:focus {
   outline: dashed 3px hsl(176, 52%, 44%);

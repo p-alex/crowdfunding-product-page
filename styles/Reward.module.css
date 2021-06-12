@@ -4,6 +4,9 @@
   padding: 20px;
   margin-bottom: 30px;
 }
+.reward.disabled {
+  opacity: 0.4;
+}
 .reward:last-child {
   margin: 0;
 }

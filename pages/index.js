@@ -1,14 +1,18 @@
+import GlobalState from "../context/GlobalState";
+
 import Head from "next/head";
+
 import Banner from "../components/Banner";
 import MobileNavBar from "../components/MobileNavBar";
 import NavBar from "../components/NavBar";
 import MastercraftBackProject from "../components/MastercraftBackProject";
 import SectionsWrapper from "../containers/SectionsWrapper";
 import Stats from "../components/Stats";
-import styles from "../styles/Home.module.css";
 import AboutProject from "../components/AboutProject";
 
-export default function Home() {
+import styles from "../styles/Home.module.css";
+
+export default function Home({ data }) {
   return (
     <>
       <Head>
@@ -19,15 +23,27 @@ export default function Home() {
         className={styles.design}
         style={{ backgroundImage: `url(images/active-states-bookmarked.jpg)` }}
       ></div>
-      <Banner imgUrl="images/image-hero-desktop.jpg">
-        <MobileNavBar />
-        <NavBar />
-      </Banner>
-      <SectionsWrapper>
-        <MastercraftBackProject />
-        <Stats />
-        <AboutProject />
-      </SectionsWrapper>
+      <GlobalState data={data}>
+        <Banner imgUrl="images/image-hero-desktop.jpg">
+          <MobileNavBar />
+          <NavBar />
+        </Banner>
+        <SectionsWrapper>
+          <MastercraftBackProject />
+          <Stats />
+          <AboutProject />
+        </SectionsWrapper>
+      </GlobalState>
     </>
   );
+}
+
+export async function getServerSideProps() {
+  const result = await fetch("http://localhost:3000/api/data");
+  const resultJson = await result.json();
+  return {
+    props: {
+      data: resultJson,
+    },
+  };
 }

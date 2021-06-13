@@ -17,7 +17,7 @@ export default function Stats() {
           <small>of {targetBackAmount.toLocaleString("en")}$ backed</small>
         </div>
         <div className={styles.stat}>
-          <span>{totalBackers}</span>
+          <span>{totalBackers.toLocaleString("en")}</span>
           <small>total backers</small>
         </div>
         <div className={styles.stat}>

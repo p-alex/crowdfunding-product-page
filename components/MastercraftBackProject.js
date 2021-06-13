@@ -17,8 +17,10 @@ export default function MastercraftBackProject() {
         alt="mastercraft"
         className={styles.logo}
       />
-      <HeaderTag type={"one"}>{title}</HeaderTag>
-      <Paragraph>{smallDesc}</Paragraph>
+      <HeaderTag type={"one"} marginTop="10px">
+        {title}
+      </HeaderTag>
+      <Paragraph marginTop="5px">{smallDesc}</Paragraph>
       <div className={styles.btns_container}>
         <Button size="big" type="button" func={() => {}}>
           Back this project

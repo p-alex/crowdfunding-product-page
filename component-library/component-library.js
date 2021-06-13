@@ -1,6 +1,7 @@
 import buttonStyles from "../styles/Button.module.css";
 import sectionContainerStyles from "../styles/SectionContainer.module.css";
 import progressBarStyles from "../styles/ProgressBar.module.css";
+import paragraphStyles from "../styles/Paragraph.module.css";
 
 export function Button({ children, size, type, func, isDisabled }) {
   return (
@@ -32,33 +33,35 @@ export function Button({ children, size, type, func, isDisabled }) {
   );
 }
 
-export function HeaderTag({ children, type }) {
+export function HeaderTag({ children, type, marginBottom, marginTop }) {
   return (
     <>
       {type === "one" ? (
-        <h1>{children}</h1>
+        <h1 style={{ marginBottom, marginTop }}>{children}</h1>
       ) : type === "two" ? (
-        <h2>{children}</h2>
+        <h2 style={{ marginBottom, marginTop }}>{children}</h2>
       ) : type === "three" ? (
-        <h3>{children}</h3>
+        <h3 style={{ marginBottom, marginTop }}>{children}</h3>
       ) : type === "four" ? (
-        <h4>{children}</h4>
+        <h4 style={{ marginBottom, marginTop }}>{children}</h4>
       ) : type === "five" ? (
-        <h5>{children}</h5>
+        <h5 style={{ marginBottom, marginTop }}>{children}</h5>
       ) : type === "six" ? (
-        <h6>{children}</h6>
+        <h6 style={{ marginBottom, marginTop }}>{children}</h6>
       ) : null}
     </>
   );
 }
 
-const paragraphStyles = {
-  margin: "25px 0",
-  color: "grey",
-  lineHeight: "30px",
-};
-export function Paragraph({ children }) {
-  return <p style={paragraphStyles}>{children}</p>;
+export function Paragraph({ children, marginTop, marginBottom }) {
+  return (
+    <p
+      className={paragraphStyles.paragraph}
+      style={{ marginBottom, marginTop }}
+    >
+      {children}
+    </p>
+  );
 }
 
 export function SectionContainer({ children, textAlign }) {

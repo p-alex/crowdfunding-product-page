@@ -7,7 +7,7 @@ async function handler(req, res) {
       useNewUrlParser: true,
     });
     const db = client.db();
-    const collection = db.collection("MastercraftProject");
+    const collection = db.collection(process.env.MONGO_COLLECTION);
     const data = await collection.find().toArray();
     client.close();
     res.json(data);

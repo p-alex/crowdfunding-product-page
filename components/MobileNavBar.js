@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useContext } from "react";
+import ProjectContext from "../context/project-context";
 import styles from "../styles/MobileNavBar.module.css";
 import MobileNavBarMenu from "./MobileNavBarMenu";
 export default function MobileNavBar() {
-  const [isActive, setIsActive] = useState(false);
-  const handleToggleMenu = () => setIsActive(!isActive);
+  const context = useContext(ProjectContext);
+  const { handleToggleMenu, isNavMenuActive } = context;
   return (
     <>
       <nav className={styles.nav}>
@@ -11,18 +12,19 @@ export default function MobileNavBar() {
           <img src="/images/logo.svg" alt="mastercraft logo" />
           <button
             className={
-              isActive
+              isNavMenuActive
                 ? styles.hamburger_container + " " + styles.open
                 : styles.hamburger_container
             }
             onClick={handleToggleMenu}
-            tabIndex="0"
           >
             <div className={styles.hamburger}></div>
           </button>
         </div>
       </nav>
-      {isActive && <MobileNavBarMenu handleToggleMenu={handleToggleMenu} />}
+      {isNavMenuActive && (
+        <MobileNavBarMenu handleToggleMenu={handleToggleMenu} />
+      )}
     </>
   );
 }

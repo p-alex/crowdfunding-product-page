@@ -1,9 +1,19 @@
+import { useContext } from "react";
+import ProjectContext from "../context/project-context";
 import buttonStyles from "../styles/Button.module.css";
 import sectionContainerStyles from "../styles/SectionContainer.module.css";
 import progressBarStyles from "../styles/ProgressBar.module.css";
 import paragraphStyles from "../styles/Paragraph.module.css";
 
-export function Button({ children, size, type, func, isDisabled }) {
+export function Button({
+  children,
+  size,
+  type,
+  func,
+  isDisabled,
+  isDisabledTabIndex,
+}) {
+  const context = useContext(ProjectContext);
   return (
     <>
       {type === "button" ? (
@@ -17,6 +27,7 @@ export function Button({ children, size, type, func, isDisabled }) {
           }
           onClick={func}
           disabled={isDisabled}
+          tabIndex={context.isNavMenuActive ? "-1" : "0"}
         >
           {children}
         </button>
@@ -24,6 +35,7 @@ export function Button({ children, size, type, func, isDisabled }) {
         <button
           className={buttonStyles.btn + " " + buttonStyles.bookmark}
           onClick={func}
+          tabIndex={context.isNavMenuActive ? "-1" : "0"}
         >
           <img src="/images/icon-bookmark.svg" alt="bookmark icon" />
           <span>{children}</span>

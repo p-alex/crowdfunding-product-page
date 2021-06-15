@@ -1,8 +1,17 @@
-import { useReducer } from "react";
+import { useEffect, useReducer, useState } from "react";
 import { NavBarMenuReducer, TOGGLE_MENU } from "./reducers";
 import ProjectContext from "./project-context";
 
 const GlobalState = ({ children, data }) => {
+  const [isBookmarked, setIsBookmarked] = useState();
+
+  useEffect(() => {
+    if (localStorage.getItem("isBookmarked") === null) {
+      localStorage.setItem("isBookmarked", false);
+    }
+    setIsBookmarked(JSON.parse(localStorage.getItem("isBookmarked")));
+  }, []);
+
   const daysLeft = (currentDate, endDate) => {
     const date1 = new Date(currentDate);
     const date2 = new Date(endDate);
@@ -17,9 +26,22 @@ const GlobalState = ({ children, data }) => {
 
   const handleToggleMenu = () => dispatch({ type: TOGGLE_MENU });
 
+  const toggleBookmarked = () => {
+    const isBookmarked = JSON.parse(localStorage.getItem("isBookmarked"));
+    localStorage.setItem("isBookmarked", !isBookmarked);
+    setIsBookmarked(JSON.parse(localStorage.getItem("isBookmarked")));
+  };
+
   return (
     <ProjectContext.Provider
-      value={{ data, daysLeft, isNavMenuActive, handleToggleMenu }}
+      value={{
+        data,
+        daysLeft,
+        isNavMenuActive,
+        handleToggleMenu,
+        toggleBookmarked,
+        isBookmarked,
+      }}
     >
       {children}
     </ProjectContext.Provider>

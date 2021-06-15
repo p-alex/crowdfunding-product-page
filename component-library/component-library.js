@@ -5,15 +5,9 @@ import sectionContainerStyles from "../styles/SectionContainer.module.css";
 import progressBarStyles from "../styles/ProgressBar.module.css";
 import paragraphStyles from "../styles/Paragraph.module.css";
 
-export function Button({
-  children,
-  size,
-  type,
-  func,
-  isDisabled,
-  isDisabledTabIndex,
-}) {
+export function Button({ children, size, type, func, isDisabled }) {
   const context = useContext(ProjectContext);
+  const { isNavMenuActive, toggleBookmarked, isBookmarked } = context;
   return (
     <>
       {type === "button" ? (
@@ -27,18 +21,23 @@ export function Button({
           }
           onClick={func}
           disabled={isDisabled}
-          tabIndex={context.isNavMenuActive ? "-1" : "0"}
+          tabIndex={isNavMenuActive ? "-1" : "0"}
         >
           {children}
         </button>
       ) : type === "bookmark" ? (
         <button
           className={buttonStyles.btn + " " + buttonStyles.bookmark}
-          onClick={func}
-          tabIndex={context.isNavMenuActive ? "-1" : "0"}
+          onClick={toggleBookmarked}
+          tabIndex={isNavMenuActive ? "-1" : "0"}
         >
-          <img src="/images/icon-bookmark.svg" alt="bookmark icon" />
-          <span>{children}</span>
+          <img
+            src={`/images/${
+              isBookmarked ? "icon-bookmark-enabled" : "icon-bookmark"
+            }.svg`}
+            alt="bookmark icon"
+          />
+          <span>{isBookmarked ? "Bookmarked" : "Bookmark"}</span>
         </button>
       ) : null}
     </>

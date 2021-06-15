@@ -8,6 +8,7 @@
   border-radius: 50px;
   cursor: pointer;
   border: none;
+  user-select: none;
 }
 .small {
   padding: 15px 20px;

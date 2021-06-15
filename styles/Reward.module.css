@@ -6,6 +6,7 @@
 }
 .reward.disabled {
   opacity: 0.4;
+  user-select: none;
 }
 .reward:last-child {
   margin: 0;

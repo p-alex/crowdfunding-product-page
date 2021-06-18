@@ -5,6 +5,7 @@ import MobileNavBarMenu from "./MobileNavBarMenu";
 export default function MobileNavBar() {
   const context = useContext(ProjectContext);
   const { handleToggleMenu, isNavMenuActive } = context;
+  const { isDonationProcessActive } = context.donation;
   return (
     <>
       <nav className={styles.nav}>
@@ -17,6 +18,7 @@ export default function MobileNavBar() {
                 : styles.hamburger_container
             }
             onClick={handleToggleMenu}
+            tabIndex={isDonationProcessActive ? "-1" : "0"}
           >
             <div className={styles.hamburger}></div>
           </button>

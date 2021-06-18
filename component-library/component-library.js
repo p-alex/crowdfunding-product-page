@@ -4,10 +4,12 @@ import buttonStyles from "../styles/Button.module.css";
 import sectionContainerStyles from "../styles/SectionContainer.module.css";
 import progressBarStyles from "../styles/ProgressBar.module.css";
 import paragraphStyles from "../styles/Paragraph.module.css";
+import modalStyles from "../styles/Modal.module.css";
 
-export function Button({ children, size, type, func, isDisabled }) {
+export function Button({ children, size, type, func, isDisabled, tabindex }) {
   const context = useContext(ProjectContext);
   const { isNavMenuActive, toggleBookmarked, isBookmarked } = context;
+  const { isDonationProcessActive } = context.donation;
   return (
     <>
       {type === "button" ? (
@@ -21,7 +23,13 @@ export function Button({ children, size, type, func, isDisabled }) {
           }
           onClick={func}
           disabled={isDisabled}
-          tabIndex={isNavMenuActive ? "-1" : "0"}
+          tabIndex={
+            tabindex
+              ? tabindex
+              : isNavMenuActive || isDonationProcessActive
+              ? "-1"
+              : "0"
+          }
         >
           {children}
         </button>
@@ -29,7 +37,7 @@ export function Button({ children, size, type, func, isDisabled }) {
         <button
           className={buttonStyles.btn + " " + buttonStyles.bookmark}
           onClick={toggleBookmarked}
-          tabIndex={isNavMenuActive ? "-1" : "0"}
+          tabIndex={isNavMenuActive || isDonationProcessActive ? "-1" : "0"}
         >
           <img
             src={`/images/${
@@ -107,6 +115,19 @@ export function ProgressBar({
     </div>
   );
 }
+
+export function Modal({ children, handleResetDonationMenu }) {
+  return (
+    <>
+      <div
+        className={modalStyles.modal_backdrop}
+        onClick={handleResetDonationMenu}
+      ></div>
+      <div className={modalStyles.modal}>{children}</div>
+    </>
+  );
+}
+
 export function AnchorTag({ children, url }) {
   const context = useContext(ProjectContext);
   const { isNavMenuActive } = context;

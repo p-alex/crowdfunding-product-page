@@ -1,10 +1,14 @@
+import { useContext } from "react";
+import ProjectContext from "../context/project-context";
 import styles from "../styles/Reward.module.css";
 import {
   HeaderTag,
   Paragraph,
   Button,
 } from "../component-library/component-library";
-export default function Reward({ title, minPledge, desc, stock }) {
+export default function Reward({ title, minPledge, desc, stock, id }) {
+  const context = useContext(ProjectContext);
+  const { handleSelectedReward } = context;
   return (
     <div
       className={
@@ -21,7 +25,12 @@ export default function Reward({ title, minPledge, desc, stock }) {
           <span>{stock}</span>
           <small>left</small>
         </div>
-        <Button size="big" type="button" isDisabled={!stock > 0}>
+        <Button
+          size="big"
+          type="button"
+          isDisabled={!stock > 0}
+          func={() => handleSelectedReward(id)}
+        >
           Select Reward
         </Button>
       </div>

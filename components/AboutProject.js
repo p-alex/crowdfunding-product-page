@@ -13,14 +13,15 @@ export default function AboutProject() {
     <SectionContainer textAlign="left">
       <HeaderTag type="one">About this project</HeaderTag>
       <Paragraph>{longDesc}</Paragraph>
-      {rewards.map((reward, id) => {
+      {rewards.map((reward) => {
         return (
           <Reward
-            key={id}
+            key={reward.id}
             title={reward.title}
             minPledge={reward.minPledge}
             desc={reward.desc}
             stock={reward.stock}
+            id={reward.id}
           />
         );
       })}

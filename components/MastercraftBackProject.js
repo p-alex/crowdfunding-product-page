@@ -10,6 +10,7 @@ import {
 export default function MastercraftBackProject() {
   const context = useContext(ProjectContext);
   const { title, smallDesc } = context.data[0];
+  const { handleToggleDonationMenu } = context;
   return (
     <SectionContainer textAlign="center">
       <img
@@ -22,10 +23,10 @@ export default function MastercraftBackProject() {
       </HeaderTag>
       <Paragraph marginTop="5px">{smallDesc}</Paragraph>
       <div className={styles.btns_container}>
-        <Button size="big" type="button" func={() => {}}>
+        <Button size="big" type="button" func={handleToggleDonationMenu}>
           Back this project
         </Button>
-        <Button size="big" type="bookmark" func={() => {}}>
+        <Button size="big" type="bookmark">
           Bookmark
         </Button>
       </div>

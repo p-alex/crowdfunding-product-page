@@ -7,7 +7,7 @@
   margin: auto;
   border-radius: 10px;
   animation: opacityAnimation 300ms;
-  z-index: 110;
+  z-index: 10;
 }
 .menu li a {
   display: block;
@@ -21,12 +21,12 @@
 }
 .backdrop {
   position: fixed;
-  z-index: 100;
+  z-index: 8;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.8);
   animation: opacityAnimation 300ms;
 }
 @keyframes opacityAnimation {

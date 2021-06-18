@@ -1,3 +1,4 @@
+import { AnchorTag } from "../component-library/component-library";
 import styles from "../styles/NavBar.module.css";
 export default function NavBar() {
   return (
@@ -7,13 +8,13 @@ export default function NavBar() {
 
         <ul className={styles.links}>
           <li>
-            <a href="#">About</a>
+            <AnchorTag url="#">About</AnchorTag>
           </li>
           <li>
-            <a href="#">Discover</a>
+            <AnchorTag url="#">Discover</AnchorTag>
           </li>
           <li>
-            <a href="#">Get Started</a>
+            <AnchorTag url="#">Get Started</AnchorTag>
           </li>
         </ul>
       </div>

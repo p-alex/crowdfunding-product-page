@@ -107,3 +107,16 @@ export function ProgressBar({
     </div>
   );
 }
+export function AnchorTag({ children, url }) {
+  const context = useContext(ProjectContext);
+  const { isNavMenuActive } = context;
+  const { isDonationProcessActive } = context.donation;
+  return (
+    <a
+      href={url}
+      tabIndex={isNavMenuActive || isDonationProcessActive ? "-1" : "0"}
+    >
+      {children}
+    </a>
+  );
+}

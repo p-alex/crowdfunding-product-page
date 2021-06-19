@@ -108,6 +108,9 @@
   .option_pledge {
     flex-direction: row;
     justify-content: space-between;
-    padding: 5px 0 0 0;
+    padding: 20px 0 0 0;
+  }
+  .option_pledge_container {
+    margin: 0;
   }
 }

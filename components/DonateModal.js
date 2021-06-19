@@ -27,7 +27,7 @@ export default function DonateModal() {
           <Paragraph marginBottom="0">
             Want to support us bringing {title} out in the world?
           </Paragraph>
-          <RewardSelect stock={999} />
+          <RewardSelect stock={999} id={""} />
           {rewards.map((reward) => (
             <RewardSelect
               key={reward.id}

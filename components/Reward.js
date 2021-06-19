@@ -31,7 +31,7 @@ export default function Reward({ title, minPledge, desc, stock, id }) {
           isDisabled={!stock > 0}
           func={() => handleSelectedReward(id)}
         >
-          Select Reward
+          {stock ? "Select Reward" : "Out of stock"}
         </Button>
       </div>
     </div>

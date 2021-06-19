@@ -10,4 +10,5 @@ export default createContext({
   handleToggleDonationMenu: () => {},
   handleSelectedReward: () => {},
   handleResetDonationMenu: () => {},
+  handleDonation: () => {},
 });

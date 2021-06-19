@@ -8,9 +8,10 @@ import ProjectContext from "../context/project-context";
 import styles from "../styles/RewardSelect.module.css";
 function RewardSelect({ title, minPledge, desc, stock, id }) {
   const context = useContext(ProjectContext);
-  const { handleSelectedReward } = context;
+  const { handleSelectedReward, handleDonation } = context;
   const { selectedReward } = context.donation;
   let [pledge, setPledge] = useState(0);
+  console.log(pledge);
   useEffect(() => {
     if (pledge < minPledge) setPledge(minPledge);
     if (/^0[0-9]+/.test(pledge)) setPledge(1);
@@ -71,7 +72,7 @@ function RewardSelect({ title, minPledge, desc, stock, id }) {
               size="small"
               type="button"
               isDisabled={false}
-              func={() => {}}
+              func={() => handleDonation(Number(pledge), id)}
               tabindex={"0"}
             >
               Continue

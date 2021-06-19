@@ -52,6 +52,19 @@ const GlobalState = ({ children, data }) => {
     localStorage.setItem("isBookmarked", !isBookmarked);
     setIsBookmarked(JSON.parse(localStorage.getItem("isBookmarked")));
   };
+
+  const handleDonation = (pledge, rewardID) => {
+    console.log("here");
+    fetch("https://crowdfunding-product-page-omega.vercel.app/api/data", {
+      method: "POST",
+      mode: "cors",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ pledge: pledge, rewardID: rewardID }),
+    });
+  };
+
   return (
     <ProjectContext.Provider
       value={{
@@ -65,6 +78,7 @@ const GlobalState = ({ children, data }) => {
         handleToggleDonationMenu,
         handleSelectedReward,
         handleResetDonationMenu,
+        handleDonation,
       }}
     >
       {children}

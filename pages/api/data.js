@@ -16,42 +16,44 @@ async function handler(req, res) {
   } catch (error) {
     console.log(error);
   }
-
-  if (req.method === "POST") {
-    console.log(req.body);
-    const client = await MongoClient.connect(process.env.MONGO_URI, {
-      useUnifiedTopology: true,
-      useNewUrlParser: true,
-    });
-    const db = client.db();
-    const collection = db.collection(process.env.MONGO_COLLECTION);
-    const result = await collection.find({}).toArray();
-    const { currentBackAmount, totalBackers, rewards } = result[0];
-    await collection.updateMany(
-      { title: "Mastercraft Bamboo Monitor Riser" },
-      {
-        $set: {
-          currentBackAmount: currentBackAmount + req.body.pledge,
-          totalBackers: totalBackers + 1,
-        },
-      }
-    );
-    if (req.body.rewardID) {
-      let currentRewardsArray = rewards;
-      let updatedRewardsArray = currentRewardsArray.map((reward) => {
-        if (reward.id === req.body.rewardID) {
-          return { ...reward, stock: reward.stock - 1 };
-        }
-        return reward;
+  try {
+    if (req.method === "POST") {
+      const client = await MongoClient.connect(process.env.MONGO_URI, {
+        useUnifiedTopology: true,
+        useNewUrlParser: true,
       });
-
-      await collection.updateOne(
+      const db = client.db();
+      const collection = db.collection(process.env.MONGO_COLLECTION);
+      const result = await collection.find({}).toArray();
+      const { currentBackAmount, totalBackers, rewards } = result[0];
+      await collection.updateMany(
         { title: "Mastercraft Bamboo Monitor Riser" },
-        { $set: { rewards: updatedRewardsArray } }
+        {
+          $set: {
+            currentBackAmount: currentBackAmount + req.body.pledge,
+            totalBackers: totalBackers + 1,
+          },
+        }
       );
+      if (req.body.rewardID) {
+        let currentRewardsArray = rewards;
+        let updatedRewardsArray = currentRewardsArray.map((reward) => {
+          if (reward.id === req.body.rewardID) {
+            return { ...reward, stock: reward.stock - 1 };
+          }
+          return reward;
+        });
+
+        await collection.updateOne(
+          { title: "Mastercraft Bamboo Monitor Riser" },
+          { $set: { rewards: updatedRewardsArray } }
+        );
+      }
+      client.close();
+      res.status(200).json({ message: "Success" });
     }
-    client.close();
-    res.status(200).json("hello");
+  } catch (error) {
+    res.status(404).json({ message: "Something went wrong" });
   }
 }
 export default handler;

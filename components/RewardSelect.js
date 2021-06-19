@@ -11,7 +11,6 @@ function RewardSelect({ title, minPledge, desc, stock, id }) {
   const { handleSelectedReward, handleDonation } = context;
   const { selectedReward } = context.donation;
   let [pledge, setPledge] = useState(0);
-  console.log(pledge);
   useEffect(() => {
     if (pledge < minPledge) setPledge(minPledge);
     if (/^0[0-9]+/.test(pledge)) setPledge(1);

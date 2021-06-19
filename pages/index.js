@@ -24,7 +24,7 @@ export default function Home({ data }) {
         className={styles.design}
         style={{ backgroundImage: `url(images/active-states-bookmarked.jpg)` }}
       ></div>
-      <GlobalState data={data}>
+      <GlobalState databaseData={data}>
         <DonateModal />
         <Banner imgUrl="images/image-hero-desktop.jpg">
           <MobileNavBar />

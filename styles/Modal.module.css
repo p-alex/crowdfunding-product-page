@@ -6,7 +6,7 @@
   transform: translateY(-50%);
   margin: 0 auto;
   width: 90%;
-  height: 90vh;
+  max-height: 80vh;
   border: solid rgb(235, 235, 235) 1px;
   padding: 20px;
   border-radius: 10px;

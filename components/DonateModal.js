@@ -21,7 +21,7 @@ export default function DonateModal() {
             className={styles.close_btn}
             onClick={handleResetDonationMenu}
           >
-            <img src="/images/icon-close-menu.svg" />
+            <img src="/images/icon-close-menu.svg" alt="close menu" />
           </button>
           <HeaderTag type="two">Back this project</HeaderTag>
           <Paragraph marginBottom="0">

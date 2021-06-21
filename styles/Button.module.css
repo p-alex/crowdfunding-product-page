@@ -10,6 +10,9 @@
   border: none;
   user-select: none;
 }
+.btn:hover {
+  background: hsl(176, 50%, 37%);
+}
 .small {
   padding: 15px 20px;
   font-size: 14px;
@@ -21,6 +24,9 @@
   color: black;
   background: rgb(235, 235, 235);
   padding: 15px;
+}
+.bookmark:hover {
+  background: rgb(221, 221, 221);
 }
 .bookmark span {
   margin-left: 50px;

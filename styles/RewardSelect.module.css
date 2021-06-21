@@ -45,7 +45,7 @@
 .option_items_left small {
   font-size: initial;
   font-weight: 400;
-  color: grey;
+  color: rgb(102, 102, 102);
   margin-left: 10px;
 }
 .option_pledge {
@@ -55,7 +55,7 @@
   padding: 15px 15px 0 15px;
   border-top: solid silver 1px;
   margin-top: 20px;
-  color: grey;
+  color: rgb(102, 102, 102);
 }
 .option_pledge_container {
   display: flex;

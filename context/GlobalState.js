@@ -56,17 +56,14 @@ const GlobalState = ({ children, databaseData }) => {
   };
 
   const handleDonation = async (pledge, rewardID) => {
-    const result = await fetch(
-      "https://crowdfunding-product-page-omega.vercel.app/api/data",
-      {
-        method: "POST",
-        mode: "cors",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ pledge: pledge, rewardID: rewardID }),
-      }
-    );
+    const result = await fetch("http://localhost:3000/api/data", {
+      method: "POST",
+      mode: "cors",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ pledge: pledge, rewardID: rewardID }),
+    });
     const resultJson = await result.json();
     if (resultJson.message === "Success") {
       const currentData = data;

@@ -23,6 +23,7 @@ export function Button({ children, size, type, func, isDisabled, tabindex }) {
           }
           onClick={func}
           disabled={isDisabled}
+          aria-label={children}
           tabIndex={
             tabindex
               ? tabindex
@@ -37,6 +38,7 @@ export function Button({ children, size, type, func, isDisabled, tabindex }) {
         <button
           className={buttonStyles.btn + " " + buttonStyles.bookmark}
           onClick={toggleBookmarked}
+          aria-label={children}
           tabIndex={isNavMenuActive || isDonationProcessActive ? "-1" : "0"}
         >
           <img
@@ -140,4 +142,8 @@ export function AnchorTag({ children, url }) {
       {children}
     </a>
   );
+}
+
+export function FeedbackModal() {
+  return <h1>hello</h1>;
 }

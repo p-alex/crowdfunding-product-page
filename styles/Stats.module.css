@@ -19,7 +19,7 @@
   margin: 10px;
 }
 .stat small {
-  color: grey;
+  color: rgb(102, 102, 102);
 }
 
 @media screen and (min-width: 800px) {

@@ -61,7 +61,7 @@ function RewardSelect({ title, minPledge, desc, stock, id }) {
 
               <input
                 type="number"
-                aria-label="pledge_amount"
+                aria-label="pledge amount"
                 name="pledge"
                 value={pledge}
                 onChange={(e) => setPledge(e.target.value)}

@@ -11,7 +11,7 @@ export default function AboutProject() {
   const { rewards, longDesc } = context.data[0];
   return (
     <SectionContainer textAlign="left">
-      <HeaderTag type="one">About this project</HeaderTag>
+      <HeaderTag type="two">About this project</HeaderTag>
       <Paragraph>{longDesc}</Paragraph>
       {rewards.map((reward) => {
         return (

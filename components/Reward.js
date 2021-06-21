@@ -16,7 +16,7 @@ export default function Reward({ title, minPledge, desc, stock, id }) {
       }
     >
       <div className={styles.reward_info}>
-        <HeaderTag type="two">{title}</HeaderTag>
+        <HeaderTag type="three">{title}</HeaderTag>
         <span>Pledge ${minPledge} or more</span>
       </div>
       <Paragraph>{desc}</Paragraph>

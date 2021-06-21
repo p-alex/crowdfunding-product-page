@@ -18,7 +18,7 @@ export default function MastercraftBackProject() {
         alt="mastercraft"
         className={styles.logo}
       />
-      <HeaderTag type={"one"} marginTop="10px">
+      <HeaderTag type="one" marginTop="10px">
         {title}
       </HeaderTag>
       <Paragraph marginTop="5px">{smallDesc}</Paragraph>

@@ -18,6 +18,7 @@
 .reward_info span {
   color: hsl(176, 50%, 47%);
   margin-top: 10px;
+  font-weight: 700;
 }
 .reward_select {
   display: inline-block;

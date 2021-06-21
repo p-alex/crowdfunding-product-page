@@ -36,7 +36,7 @@ function RewardSelect({ title, minPledge, desc, stock, id }) {
           <div className={styles.circle}></div>
         </button>
         <div className={styles.option_info_container}>
-          <HeaderTag type={"three"}>
+          <HeaderTag type="three">
             {title ? title : "Pledge with no reward"}
           </HeaderTag>
           {title && <span>Pledge ${minPledge} or more</span>}

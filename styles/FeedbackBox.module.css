@@ -1,0 +1,48 @@
+.feedback_box {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0 auto;
+  max-width: 90%;
+  border: solid rgb(235, 235, 235) 1px;
+  padding: 20px;
+  border-radius: 10px;
+  z-index: 195;
+  background: white;
+  animation: opacity 300ms;
+  text-align: center;
+}
+.feedback_box img {
+  margin-bottom: 30px;
+}
+.feedback_box_backdrop {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 100;
+  animation: opacity 300ms;
+}
+@media screen and (min-width: 800px) {
+  .feedback_box {
+    position: fixed;
+    max-width: 450px;
+    display: inline-block;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 40px;
+    height: auto;
+  }
+}
+@keyframes opacity {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

@@ -10,6 +10,7 @@ import SectionsWrapper from "../containers/SectionsWrapper";
 import Stats from "../components/Stats";
 import AboutProject from "../components/AboutProject";
 import DonateModal from "../components/DonateModal";
+import FeedbackModal from "../components/FeedbackModal";
 
 import styles from "../styles/Home.module.css";
 
@@ -25,6 +26,7 @@ export default function Home({ data }) {
         style={{ backgroundImage: `url(images/active-states-bookmarked.jpg)` }}
       ></div>
       <GlobalState databaseData={data}>
+        <FeedbackModal />
         <DonateModal />
         <Banner imgUrl="images/image-hero-desktop.jpg">
           <MobileNavBar />

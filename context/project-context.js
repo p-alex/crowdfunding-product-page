@@ -11,4 +11,5 @@ export default createContext({
   handleSelectedReward: () => {},
   handleResetDonationMenu: () => {},
   handleDonation: () => {},
+  handleResetDonationState: () => {},
 });

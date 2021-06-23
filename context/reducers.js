@@ -2,6 +2,8 @@ export const TOGGLE_MENU = "TOGGLE_MENU";
 export const TOGGLE_DONATION_MENU = "TOGGLE_DONATION_MENU";
 export const SELECT_REWARD = "SELECT_REWARD";
 export const RESET_DONATION_MENU = "RESET_DONATION_MENU";
+export const FEEDBACK = "FEEDBACK";
+export const RESET_DONATION_STATE = "RESET_DONATION_STATE";
 
 export const NavBarMenuReducer = (
   state = { selectedReward: "", isDonationProcessActive: false },
@@ -19,6 +21,7 @@ export const DonationReducer = (
   state = {
     selectedReward: "",
     isDonationProcessActive: false,
+    donationSuccess: "",
   },
   action
 ) => {
@@ -35,7 +38,24 @@ export const DonationReducer = (
         isDonationProcessActive: true,
       });
     case RESET_DONATION_MENU:
-      return { selectedReward: "", isDonationProcessActive: false };
+      return (state = {
+        ...state,
+        selectedReward: "",
+        isDonationProcessActive: false,
+      });
+    case RESET_DONATION_STATE:
+      return {
+        selectedReward: "",
+        isDonationProcessActive: false,
+        donationSuccess: "",
+      };
+    case FEEDBACK:
+      return (state = {
+        ...state,
+        selectedReward: "",
+        isDonationProcessActive: false,
+        donationSuccess: action.payload,
+      });
     default:
       return state;
   }

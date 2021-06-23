@@ -6,6 +6,8 @@ import {
   TOGGLE_DONATION_MENU,
   SELECT_REWARD,
   RESET_DONATION_MENU,
+  FEEDBACK,
+  RESET_DONATION_STATE,
 } from "./reducers";
 import ProjectContext from "./project-context";
 
@@ -36,6 +38,7 @@ const GlobalState = ({ children, databaseData }) => {
   const [donation, dispatchDonation] = useReducer(DonationReducer, {
     selectedReward: "",
     isDonationProcessActive: false,
+    donationSuccess: "",
   });
 
   const handleToggleMenu = () => dispatchNavMenuActive({ type: TOGGLE_MENU });
@@ -49,6 +52,9 @@ const GlobalState = ({ children, databaseData }) => {
   const handleResetDonationMenu = () =>
     dispatchDonation({ type: RESET_DONATION_MENU });
 
+  const handleResetDonationState = () =>
+    dispatchDonation({ type: RESET_DONATION_STATE });
+
   const toggleBookmarked = () => {
     const isBookmarked = JSON.parse(localStorage.getItem("isBookmarked"));
     localStorage.setItem("isBookmarked", !isBookmarked);
@@ -56,17 +62,14 @@ const GlobalState = ({ children, databaseData }) => {
   };
 
   const handleDonation = async (pledge, rewardID) => {
-    const result = await fetch(
-      "https://crowdfunding-product-page-omega.vercel.app/api/data",
-      {
-        method: "POST",
-        mode: "cors",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ pledge: pledge, rewardID: rewardID }),
-      }
-    );
+    const result = await fetch("http://localhost:3000/api/data", {
+      method: "POST",
+      mode: "cors",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ pledge: pledge, rewardID: rewardID }),
+    });
     const resultJson = await result.json();
     if (resultJson.message === "Success") {
       const currentData = data;
@@ -84,8 +87,12 @@ const GlobalState = ({ children, databaseData }) => {
         return data;
       });
       setData(updatedData);
+      handleResetDonationMenu();
+      dispatchDonation({ type: FEEDBACK, payload: resultJson.message });
+    } else {
+      handleResetDonationMenu();
+      dispatchDonation({ type: FEEDBACK, payload: resultJson.message });
     }
-    handleResetDonationMenu();
   };
 
   return (
@@ -102,6 +109,7 @@ const GlobalState = ({ children, databaseData }) => {
         handleSelectedReward,
         handleResetDonationMenu,
         handleDonation,
+        handleResetDonationState,
       }}
     >
       {children}

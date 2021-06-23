@@ -5,6 +5,7 @@ import sectionContainerStyles from "../styles/SectionContainer.module.css";
 import progressBarStyles from "../styles/ProgressBar.module.css";
 import paragraphStyles from "../styles/Paragraph.module.css";
 import modalStyles from "../styles/Modal.module.css";
+import feedbackBoxStyles from "../styles/FeedbackBox.module.css";
 
 export function Button({ children, size, type, func, isDisabled, tabindex }) {
   const context = useContext(ProjectContext);
@@ -144,6 +145,16 @@ export function AnchorTag({ children, url }) {
   );
 }
 
-export function FeedbackModal() {
-  return <h1>hello</h1>;
+export function FeedbackBox({ children }) {
+  const context = useContext(ProjectContext);
+  const { handleResetDonationState } = context;
+  return (
+    <>
+      <div
+        className={feedbackBoxStyles.feedback_box_backdrop}
+        onClick={handleResetDonationState}
+      ></div>
+      <div className={feedbackBoxStyles.feedback_box}>{children}</div>
+    </>
+  );
 }

@@ -1,29 +1,25 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import { MongoClient } from "mongodb";
 async function handler(req, res) {
-  try {
-    if (req.method === "GET") {
-      const client = await MongoClient.connect(process.env.MONGO_URI, {
-        useUnifiedTopology: true,
-        useNewUrlParser: true,
-      });
-      const db = client.db();
-      const collection = db.collection(process.env.MONGO_COLLECTION);
+  const client = await MongoClient.connect(process.env.MONGO_URI, {
+    useUnifiedTopology: true,
+    useNewUrlParser: true,
+  });
+  const db = client.db();
+  const collection = db.collection(process.env.MONGO_COLLECTION);
+  if (req.method === "GET") {
+    try {
       const data = await collection.find().toArray();
       client.close();
       res.json(data);
+    } catch (error) {
+      console.log(error);
+      client.close();
+      res.status(404).json({ message: "Could not retrieve data from the Api" });
     }
-  } catch (error) {
-    console.log(error);
   }
-  try {
-    if (req.method === "POST") {
-      const client = await MongoClient.connect(process.env.MONGO_URI, {
-        useUnifiedTopology: true,
-        useNewUrlParser: true,
-      });
-      const db = client.db();
-      const collection = db.collection(process.env.MONGO_COLLECTION);
+
+  if (req.method === "POST") {
+    try {
       const result = await collection.find({}).toArray();
       const { currentBackAmount, totalBackers, rewards } = result[0];
       await collection.updateMany(
@@ -51,9 +47,10 @@ async function handler(req, res) {
       }
       client.close();
       res.status(200).json({ message: "Success" });
+    } catch (error) {
+      client.close();
+      res.status(404).json({ message: "Error" });
     }
-  } catch (error) {
-    res.status(404).json({ message: "Error" });
   }
 }
 export default handler;

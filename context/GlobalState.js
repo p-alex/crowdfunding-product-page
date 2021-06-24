@@ -2,7 +2,8 @@ import { useEffect, useReducer, useState } from "react";
 import {
   DonationReducer,
   NavBarMenuReducer,
-  TOGGLE_MENU,
+  TOGGLE_NAV_MENU,
+  CLOSE_NAV_MENU,
   TOGGLE_DONATION_MENU,
   SELECT_REWARD,
   RESET_DONATION_MENU,
@@ -41,10 +42,13 @@ const GlobalState = ({ children, databaseData }) => {
     donationSuccess: "",
   });
 
-  const handleToggleMenu = () => dispatchNavMenuActive({ type: TOGGLE_MENU });
+  const handleToggleMenu = () =>
+    dispatchNavMenuActive({ type: TOGGLE_NAV_MENU });
 
-  const handleToggleDonationMenu = () =>
+  const handleToggleDonationMenu = () => {
+    dispatchNavMenuActive({ type: CLOSE_NAV_MENU });
     dispatchDonation({ type: TOGGLE_DONATION_MENU });
+  };
 
   const handleSelectedReward = (id) =>
     dispatchDonation({ type: SELECT_REWARD, payload: id });

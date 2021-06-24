@@ -14,6 +14,7 @@
 .reward_info {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 .reward_info span {
   color: hsl(176, 50%, 47%);
@@ -47,6 +48,9 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+  }
+  .reward_info span {
+    margin-top: 0px;
   }
   .reward_itemsLeft {
     margin-bottom: 0px;

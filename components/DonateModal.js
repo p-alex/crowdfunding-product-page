@@ -10,7 +10,7 @@ import RewardSelect from "./RewardSelect";
 export default function DonateModal() {
   const context = useContext(ProjectContext);
   const { title, rewards } = context.data[0];
-  const { isDonationProcessActive, selectedReward } = context.donation;
+  const { isDonationProcessActive } = context.donation;
   const { handleResetDonationMenu } = context;
 
   return (
@@ -20,8 +20,9 @@ export default function DonateModal() {
           <button
             className={styles.close_btn}
             onClick={handleResetDonationMenu}
+            aria-label="close donation modal"
           >
-            <img src="/images/icon-close-menu.svg" alt="close menu" />
+            <img src="/images/icon-close-menu.svg" alt="close donation menu" />
           </button>
           <HeaderTag type="two">Back this project</HeaderTag>
           <Paragraph marginBottom="0">

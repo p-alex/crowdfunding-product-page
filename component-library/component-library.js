@@ -48,7 +48,9 @@ export function Button({ children, size, type, func, isDisabled, tabindex }) {
             }.svg`}
             alt="bookmark icon"
           />
-          <span>{isBookmarked ? "Bookmarked" : "Bookmark"}</span>
+          <span style={isBookmarked ? { color: "hsl(176, 50%, 47%)" } : null}>
+            {isBookmarked ? "Bookmarked" : "Bookmark"}
+          </span>
         </button>
       ) : null}
     </>

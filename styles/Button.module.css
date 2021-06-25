@@ -18,12 +18,12 @@
   font-size: 14px;
 }
 .big {
-  padding: 15px 35px;
+  padding: 18px 40px;
 }
 .bookmark {
   color: black;
   background: rgb(235, 235, 235);
-  padding: 15px;
+  padding: 18px;
 }
 .bookmark:hover {
   background: rgb(221, 221, 221);

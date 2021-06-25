@@ -8,7 +8,7 @@
   display: flex;
   width: 200px;
   flex-direction: column;
-  border-bottom: solid #e0e0e0 1px;
+  border-bottom: solid #dbdbdb 1px;
 }
 .stat:last-child {
   border: none;
@@ -28,7 +28,7 @@
   }
   .stat {
     border-bottom: none;
-    border-right: solid #e0e0e0 1px;
+    border-right: solid #dbdbdb 1px;
     width: 100%;
   }
 }

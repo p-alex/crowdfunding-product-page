@@ -21,7 +21,9 @@ export default function MastercraftBackProject() {
       <HeaderTag type="one" marginTop="10px">
         {title}
       </HeaderTag>
-      <Paragraph marginTop="5px">{smallDesc}</Paragraph>
+      <Paragraph marginTop="5px" marginBottom="35px">
+        {smallDesc}
+      </Paragraph>
       <div className={styles.btns_container}>
         <Button size="big" type="button" func={handleToggleDonationMenu}>
           Back this project

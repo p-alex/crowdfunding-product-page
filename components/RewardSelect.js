@@ -20,7 +20,10 @@ function RewardSelect({ title, minPledge, desc, stock, id }) {
   return (
     <div
       className={
-        stock > 0 ? styles.option : styles.option + " " + styles.disabled
+        (stock > 0 ? styles.option : styles.option + " " + styles.disabled,
+        selectedReward === id
+          ? styles.selected + " " + styles.option
+          : styles.option)
       }
     >
       <div className={styles.option_info}>
@@ -30,6 +33,11 @@ function RewardSelect({ title, minPledge, desc, stock, id }) {
               ? styles.radioBtn + " " + styles.active
               : styles.radioBtn
           }
+          role="checkbox"
+          aria-checked={selectedReward === id ? "true" : "false"}
+          aria-label={`select ${
+            title ? title + " reward" : "pledge with no reward"
+          }`}
           disabled={!stock}
           onClick={() => handleSelectedReward(id)}
         >

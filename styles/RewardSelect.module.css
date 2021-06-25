@@ -1,6 +1,6 @@
 .option {
   position: relative;
-  border: solid silver 1px;
+  border: solid #dbdbdb 2px;
   border-radius: 10px;
   padding: 20px;
   margin-top: 30px;
@@ -9,12 +9,15 @@
   opacity: 0.4;
   user-select: none;
 }
+.option.selected {
+  border: solid hsl(176, 50%, 47%) 2px;
+}
 .option_info {
   display: flex;
   align-items: center;
 }
 .radioBtn {
-  border: solid silver 1px;
+  border: solid #dbdbdb 1px;
   width: 30px;
   height: 30px;
   border-radius: 50%;

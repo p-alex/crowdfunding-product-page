@@ -1,7 +1,6 @@
 import { useEffect, useReducer, useState } from "react";
+import { DonationReducer, NavBarMenuReducer } from "./reducers";
 import {
-  DonationReducer,
-  NavBarMenuReducer,
   TOGGLE_NAV_MENU,
   CLOSE_NAV_MENU,
   TOGGLE_DONATION_MENU,
@@ -9,7 +8,7 @@ import {
   RESET_DONATION_MENU,
   FEEDBACK,
   RESET_DONATION_STATE,
-} from "./reducers";
+} from "./actions";
 import ProjectContext from "./project-context";
 
 const GlobalState = ({ children, databaseData }) => {

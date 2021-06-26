@@ -5,9 +5,9 @@ async function handler(req, res) {
     useNewUrlParser: true,
   });
   const db = client.db();
-  const collection = db.collection(process.env.MONGO_COLLECTION);
   if (req.method === "GET") {
     try {
+      const collection = db.collection(process.env.MONGO_COLLECTION);
       const data = await collection.find().toArray();
       client.close();
       res.json(data);
@@ -20,6 +20,7 @@ async function handler(req, res) {
 
   if (req.method === "POST") {
     try {
+      const collection = db.collection(process.env.MONGO_COLLECTION);
       const result = await collection.find({}).toArray();
       const { currentBackAmount, totalBackers, rewards } = result[0];
       await collection.updateMany(
@@ -48,6 +49,7 @@ async function handler(req, res) {
       client.close();
       res.status(200).json({ message: "Success" });
     } catch (error) {
+      console.log(error);
       client.close();
       res.status(404).json({ message: "Error" });
     }

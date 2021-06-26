@@ -1,0 +1,8 @@
+.site_wrapper {
+  position: relative;
+  width: 100%;
+}
+.site_wrapper.disabled_scroll {
+  height: 100vh;
+  overflow-y: hidden;
+}

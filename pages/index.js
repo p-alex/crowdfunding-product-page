@@ -11,6 +11,7 @@ import Stats from "../components/Stats";
 import AboutProject from "../components/AboutProject";
 import DonateModal from "../components/DonateModal";
 import FeedbackModal from "../components/FeedbackModal";
+import SiteWrapper from "../containers/SiteWrapper";
 
 import styles from "../styles/Home.module.css";
 
@@ -26,17 +27,19 @@ export default function Home({ data }) {
         style={{ backgroundImage: `url(images/active-states-bookmarked.jpg)` }}
       ></div>
       <GlobalState databaseData={data}>
-        <FeedbackModal />
-        <DonateModal />
-        <Banner imgUrl="images/image-hero-desktop.jpg">
-          <MobileNavBar />
-          <NavBar />
-        </Banner>
-        <SectionsWrapper>
-          <MastercraftBackProject />
-          <Stats />
-          <AboutProject />
-        </SectionsWrapper>
+        <SiteWrapper>
+          <FeedbackModal />
+          <DonateModal />
+          <Banner imgUrl="images/image-hero-desktop.jpg">
+            <MobileNavBar />
+            <NavBar />
+          </Banner>
+          <SectionsWrapper>
+            <MastercraftBackProject />
+            <Stats />
+            <AboutProject />
+          </SectionsWrapper>
+        </SiteWrapper>
       </GlobalState>
     </>
   );

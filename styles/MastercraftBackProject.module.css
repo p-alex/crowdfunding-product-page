@@ -12,3 +12,14 @@
   justify-content: space-between;
   align-items: center;
 }
+
+@media screen and (max-width: 420px) {
+  .btns_container {
+    justify-content: space-between;
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+  .btns_container button:last-child {
+    margin-bottom: 20px;
+  }
+}

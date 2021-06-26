@@ -14,7 +14,7 @@
 .reward_info {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
 }
 .reward_info span {
   color: hsl(176, 50%, 47%);

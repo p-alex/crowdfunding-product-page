@@ -22,10 +22,6 @@ export default function Home({ data }) {
         <title>Crowd Funding Product Page - Frontend Mentor Challenge</title>
         <meta name="description" content="A challenge by Frontend Mentor" />
       </Head>
-      <div
-        className={styles.design}
-        style={{ backgroundImage: `url(images/active-states-bookmarked.jpg)` }}
-      ></div>
       <GlobalState databaseData={data}>
         <SiteWrapper>
           <FeedbackModal />

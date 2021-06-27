@@ -15,7 +15,7 @@ export default function FeedbackModal() {
       {donationSuccess && (
         <FeedbackBox>
           {donationSuccess === "Success" && (
-            <img src="/images/icon-check.svg" />
+            <img src="/images/icon-check.svg" alt="success icon" />
           )}
           <HeaderTag type="two" marginBottom="30px">
             {donationSuccess === "Success"

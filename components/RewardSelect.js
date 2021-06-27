@@ -3,28 +3,33 @@ import {
   Paragraph,
   Button,
 } from "../component-library/component-library";
-import { useState, useEffect, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import ProjectContext from "../context/project-context";
 import styles from "../styles/RewardSelect.module.css";
 function RewardSelect({ title, minPledge, desc, stock, id }) {
   const context = useContext(ProjectContext);
   const { handleSelectedReward, handleDonation } = context;
   const { selectedReward } = context.donation;
-  let [pledge, setPledge] = useState(0);
+  let [pledge, setPledge] = useState("");
+  let [invalid, setInvalid] = useState(false);
   useEffect(() => {
-    if (pledge < minPledge) setPledge(minPledge);
-    if (/^0[0-9]+/.test(pledge)) setPledge(1);
-    if (pledge > 999999) setPledge(999999);
-    if (minPledge == undefined && pledge < 1) setPledge(1);
+    if (/\D/.test(pledge)) setPledge(pledge.slice(0, pledge.length - 1));
   }, [pledge]);
+  const handleInvalid = () => {
+    setInvalid(true);
+    setTimeout(() => {
+      setInvalid(false);
+    }, 3000);
+  };
+
   return (
     <div
       className={
-        (stock > 0 ? styles.option : styles.option + " " + styles.disabled,
         selectedReward === id
           ? styles.selected + " " + styles.option
-          : styles.option)
+          : styles.option
       }
+      style={stock > 0 ? null : { opacity: "0.4", userSelect: "none" }}
     >
       <div className={styles.option_info}>
         <button
@@ -64,12 +69,15 @@ function RewardSelect({ title, minPledge, desc, stock, id }) {
         <div className={styles.option_pledge}>
           <span>Enter your pledge</span>
           <div className={styles.option_pledge_container}>
-            <div className={styles.input}>
+            <div
+              className={styles.input}
+              style={invalid ? { outline: "solid red 2px" } : null}
+            >
               <span>$</span>
 
               <input
-                type="number"
-                aria-label="pledge amount"
+                type="text"
+                aria-label="pledge amount in dollars"
                 name="pledge"
                 value={pledge}
                 onChange={(e) => setPledge(e.target.value)}
@@ -79,7 +87,11 @@ function RewardSelect({ title, minPledge, desc, stock, id }) {
               size="small"
               type="button"
               isDisabled={false}
-              func={() => handleDonation(Number(pledge), id)}
+              func={
+                pledge < minPledge || pledge < 1
+                  ? handleInvalid
+                  : () => handleDonation(Number(pledge), id)
+              }
               tabindex={"0"}
             >
               Continue

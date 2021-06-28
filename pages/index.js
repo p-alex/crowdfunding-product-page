@@ -21,6 +21,11 @@ export default function Home({ data }) {
       <Head>
         <title>Crowd Funding Product Page - Frontend Mentor Challenge</title>
         <meta name="description" content="A challenge by Frontend Mentor" />
+        <link
+          rel="shortcut icon"
+          type="image/png"
+          href="/images/favicon-32x32.png"
+        />
       </Head>
       <GlobalState databaseData={data}>
         <SiteWrapper>

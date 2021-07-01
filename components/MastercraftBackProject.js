@@ -13,11 +13,7 @@ export default function MastercraftBackProject() {
   const { handleToggleDonationMenu } = context;
   return (
     <SectionContainer textAlign="center">
-      <img
-        src="/images/logo-mastercraft.svg"
-        alt="mastercraft"
-        className={styles.logo}
-      />
+      <img src="/images/logo-mastercraft.svg" alt="" className={styles.logo} />
       <HeaderTag type="one" marginTop="10px">
         {title}
       </HeaderTag>

@@ -1,20 +1,12 @@
-import { useContext } from "react";
-import ProjectContext from "../context/project-context";
-import styles from "../styles/Reward.module.css";
-import {
-  HeaderTag,
-  Paragraph,
-  Button,
-} from "../component-library/component-library";
+import { useContext } from 'react';
+import ProjectContext from '../context/project-context';
+import styles from '../styles/Reward.module.css';
+import { HeaderTag, Paragraph, Button } from '../component-library/component-library';
 export default function Reward({ title, minPledge, desc, stock, id }) {
   const context = useContext(ProjectContext);
   const { handleSelectedReward } = context;
   return (
-    <div
-      className={
-        stock > 0 ? styles.reward : styles.reward + " " + styles.disabled
-      }
-    >
+    <div className={stock > 0 ? styles.reward : styles.reward + ' ' + styles.disabled}>
       <div className={styles.reward_info}>
         <HeaderTag type="three">{title}</HeaderTag>
         <span>Pledge ${minPledge} or more</span>
@@ -28,10 +20,10 @@ export default function Reward({ title, minPledge, desc, stock, id }) {
         <Button
           size="big"
           type="button"
-          isDisabled={!stock > 0}
+          isDisabled={stock <= 0}
           func={() => handleSelectedReward(id)}
         >
-          {stock ? "Select Reward" : "Out of stock"}
+          {stock ? 'Select Reward' : 'Out of stock'}
         </Button>
       </div>
     </div>

@@ -7,3 +7,9 @@
   border: solid rgb(235, 235, 235) 1px;
   margin-bottom: 30px;
 }
+
+@media screen and (max-width: 800px) {
+  .container {
+    padding: 30px;
+  }
+}

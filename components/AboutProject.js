@@ -6,6 +6,7 @@ import {
   Paragraph,
 } from "../component-library/component-library";
 import Reward from "./Reward";
+// p
 export default function AboutProject() {
   const context = useContext(ProjectContext);
   const { rewards, longDesc } = context.data[0];
